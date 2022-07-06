@@ -98,4 +98,7 @@ References:
        under sources we should see styles.css
        and should contain "Bootstrap v3.4.1 (https://getbootstrap.com/)"
        
+       If you're getting errors when running npm install, you can often solve them by running npm install --legacy-peer-deps instead of npm install
+       
+# Basics
        
