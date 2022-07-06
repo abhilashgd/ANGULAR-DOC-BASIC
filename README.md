@@ -81,4 +81,21 @@ References:
          bootstrap: [AppComponent]
        })
        export class AppModule { }
+# BOOTSTRAP CSS Project
 
+       $ npm install --save bootstrap@3
+       GOTO-->angular.json
+       add bootstrap css path
+        "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],
+       $ ng serve
+       --> open  http://localhost:4200/
+       --> inspect element 
+       we should see styles.css being imported in head
+       <link rel="stylesheet" href="styles.css">
+       under sources we should see styles.css
+       and should contain "Bootstrap v3.4.1 (https://getbootstrap.com/)"
+       
+       
