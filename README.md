@@ -41,3 +41,44 @@ References:
         
         replace app.component.html
         server runs on : http://localhost:4200/
+
+# Editing the app
+        
+        FILE: app.component.html
+        
+        <input type="text" [(ngModel)]="name">
+              <p>{{ name }}</p>
+              
+        FILE: app component.ts
+        
+        import { Component } from '@angular/core';
+
+              @Component({
+                selector: 'app-root',
+                templateUrl: './app.component.html',
+                styleUrls: ['./app.component.css']
+              })
+              export class AppComponent {
+                name = 'abhilashgd';
+              }
+        
+       FILE: app.module.ts
+       
+       import { NgModule } from '@angular/core';
+       import { BrowserModule } from '@angular/platform-browser';
+       import { FormsModule } from '@angular/forms';
+       import { AppComponent } from './app.component';
+
+       @NgModule({
+         declarations: [
+           AppComponent
+         ],
+         imports: [
+           BrowserModule,
+           FormsModule
+         ],
+         providers: [],
+         bootstrap: [AppComponent]
+       })
+       export class AppModule { }
+
