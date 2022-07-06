@@ -39,3 +39,5 @@ References:
         $ git remote add origin ssh://git@
         $ git push -u origin HEAD:master
         
+        replace app.component.html
+        server runs on : http://localhost:4200/
