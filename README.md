@@ -210,4 +210,74 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
             <h3>The Server Component</h3>
        </app-server></app-servers></app-root>
             
-            
+# Component templates
+      FILE: servers.component.ts
+      
+            import { Component, OnInit } from '@angular/core';
+
+            @Component({
+              selector: 'app-servers',
+              template: `
+              <app-server></app-server>
+              <app-server></app-server>`,
+              styleUrls: ['./servers.component.css']
+            })
+            export class ServersComponent implements OnInit {
+
+              constructor() { }
+
+              ngOnInit(): void {
+              }
+
+            }
+
+# Component Styles
+
+      FILE: app.component.html
+      
+            <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3>I am in the app component!</h3>
+                    <hr>
+                    <app-servers></app-servers>        
+                </div>
+            </div>
+            </div>
+      //external file css      
+      FILE: app.component.css
+                    h3 {
+                  color:blue
+              }
+              
+      //Inline style
+      FILE: app.component.ts
+            import { Component } from '@angular/core';
+
+            @Component({
+              selector: 'app-root',
+              templateUrl: './app.component.html',
+              //styleUrls: ['./app.component.css']
+              styles: [`
+              h3 {
+                color: dodgerblue;
+              }
+              `]
+            })
+            export class AppComponent {
+              name = 'abhilashgd';
+            }
+
+# Component Selector
+      FILE: app.component.ts
+            @Component({
+              // selector: '[app-servers]',
+             selector: 'app-servers',
+             
+      FILE: app.component.html
+      
+           <app-servers></app-servers>    
+           <!-- <div app-servers></div>    -->
+           <!-- <div class="app-servers"></div> -->
+           
+           
