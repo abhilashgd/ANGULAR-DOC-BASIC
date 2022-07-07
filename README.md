@@ -1,5 +1,6 @@
-# ANGULAR-DOCS
-
+# ANGULAR 13  (formerly "Angular 2") -DOCS
+              reactive web apps with the successor of Angular.js
+              
 References:
 
        LTS version:  https://nodejs.org/en/
@@ -46,41 +47,41 @@ References:
         
         FILE: app.component.html
         
-        <input type="text" [(ngModel)]="name">
-              <p>{{ name }}</p>
+               <input type="text" [(ngModel)]="name">
+                     <p>{{ name }}</p>
               
         FILE: app component.ts
         
-        import { Component } from '@angular/core';
+               import { Component } from '@angular/core';
 
-              @Component({
-                selector: 'app-root',
-                templateUrl: './app.component.html',
-                styleUrls: ['./app.component.css']
-              })
-              export class AppComponent {
-                name = 'abhilashgd';
-              }
+                     @Component({
+                       selector: 'app-root',
+                       templateUrl: './app.component.html',
+                       styleUrls: ['./app.component.css']
+                     })
+                     export class AppComponent {
+                       name = 'abhilashgd';
+                     }
         
        FILE: app.module.ts
        
-       import { NgModule } from '@angular/core';
-       import { BrowserModule } from '@angular/platform-browser';
-       import { FormsModule } from '@angular/forms';
-       import { AppComponent } from './app.component';
+              import { NgModule } from '@angular/core';
+              import { BrowserModule } from '@angular/platform-browser';
+              import { FormsModule } from '@angular/forms';
+              import { AppComponent } from './app.component';
 
-       @NgModule({
-         declarations: [
-           AppComponent
-         ],
-         imports: [
-           BrowserModule,
-           FormsModule
-         ],
-         providers: [],
-         bootstrap: [AppComponent]
-       })
-       export class AppModule { }
+              @NgModule({
+                declarations: [
+                  AppComponent
+                ],
+                imports: [
+                  BrowserModule,
+                  FormsModule
+                ],
+                providers: [],
+                bootstrap: [AppComponent]
+              })
+              export class AppModule { }
 # BOOTSTRAP CSS Project
 
        $ npm install --save bootstrap@3
@@ -101,4 +102,46 @@ References:
        If you're getting errors when running npm install, you can often solve them by running npm install --legacy-peer-deps instead of npm install
        
 # Basics
+       index.html --> contains app-root in the body which loads app root component --> app.component.ts
+       main.ts --> platformBrowserDynamic().bootstrapModule(AppModule)--> amm.module.ts
+       angular in the end is JS framework changing our DOM (HTML) at runtime
+       
+       FILE: app.component.ts
+       
+       
+              Best PracticeL Each Component should typically have its own folder
+              create appd--> server folder --> server.component.ts
+              create appd--> server folder --> server.component.html
+
+              FILE: server.component.ts
+              import { Component } from "@angular/core";
+
+              @Component({
+                  selector: 'app-server',
+                  templateUrl: './server.component.html'
+              })
+              export class ServerComponent {
+
+              }
+       
+       FILE : app.module.ts
+       
+              import { NgModule } from '@angular/core';
+              import { BrowserModule } from '@angular/platform-browser';
+              import { AppComponent } from './app.component';
+              import { ServerComponent } from './server/server.component';
+
+              @NgModule({
+                declarations: [
+                  AppComponent,
+                  ServerComponent
+                ],
+                imports: [
+                  BrowserModule
+                ],
+                providers: [],
+                bootstrap: [AppComponent]
+              })
+              export class AppModule { }
+
        
