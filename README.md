@@ -478,3 +478,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
       FILE: servers.component.ts      
               serverName="TestServer";
               
+# Directives
+
+
