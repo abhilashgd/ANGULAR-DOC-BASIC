@@ -478,10 +478,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
       FILE: servers.component.ts      
               serverName="TestServer";
               
-# Directives
+# Directives - ngIF and else condition
 
-    *ngIF
-
+     *ngIf
      FILE: servers.component.html
         <!-- <p>{{serverCreationStatus}}</p> -->
             <p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
@@ -504,3 +503,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
       <!-- <p *ngIf="!serverCreated"> No server was created!</p>
       FILE: servers.component.ts    
       //No changes
+
+# styling elements dynamically with ngStyle
+
+
+      
