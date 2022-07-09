@@ -292,7 +292,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
        
             import { Component } from "@angular/core";
  
- **String Interpolation **    
+ **String Interpolation**    
     
       FILE: server.component.ts
            import { Component } from "@angular/core";
@@ -313,8 +313,84 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
       FILE: server.component.html
            <p>Server with ID {{ serverId }} is {{ getServerStatus() }}</p>
            
-  ** Property binding **  
+  **Property binding**  
   
+      FILE: servers.component.html
       
+        <button class="btn btn-primary"
+        [disabled]="!allowNewServer">Add Server</button>
+        <app-server></app-server>
+        <app-server></app-server>
+        
+      FILE: servers.component.ts
       
- 
+           import { Component, OnInit } from '@angular/core';
+
+            @Component({
+              // selector: '[app-servers]',
+             selector: 'app-servers',
+              // template: `
+              // <app-server></app-server>
+              // <app-server></app-server>`,
+              templateUrl: './servers.component.html',
+              styleUrls: ['./servers.component.css']
+            })
+            export class ServersComponent implements OnInit {
+              allowNewServer = false;
+              constructor() {
+                setTimeout(() => {
+                  this.allowNewServer = true;
+                },2000);
+
+               }
+
+              ngOnInit(): void {
+              }
+
+            }
+
+  **Event Binding**
+  
+      FILE: servers.component.html
+          <button class="btn btn-primary"
+        [disabled]="!allowNewServer"
+        (click)="onCreateServer()">Add Server</button>
+        <!-- <p [innerText]="allowNewServer"></p> -->
+        <p>{{serverCreationStatus}}</p>
+        <app-server></app-server>
+        <app-server></app-server>
+
+      FILE: servers.component.ts
+      
+          import { Component, OnInit } from '@angular/core';
+
+            @Component({
+              // selector: '[app-servers]',
+             selector: 'app-servers',
+              // template: `
+              // <app-server></app-server>
+              // <app-server></app-server>`,
+              templateUrl: './servers.component.html',
+              styleUrls: ['./servers.component.css']
+            })
+            export class ServersComponent implements OnInit {
+              allowNewServer = false;
+              serverCreationStatus = 'No server was created!';
+              constructor() {
+                setTimeout(() => {
+                  this.allowNewServer = true;
+                },2000);
+
+               }
+
+              ngOnInit(): void {
+              }
+            onCreateServer(){
+              this.serverCreationStatus = 'server was created!';
+            }
+            }
+            How do you know to which Properties or Events of HTML Elements you may bind? You can basically bind to all Properties and Events - a good idea is to console.log()  the element you're interested in to see which properties and events it offers.
+
+      Important: For events, you don't bind to onclick but only to click (=> (click)).
+
+      The MDN (Mozilla Developer Network) offers nice lists of all properties and events of the element you're interested in. Googling for YOUR_ELEMENT properties  or YOUR_ELEMENT events  should yield nice results.
