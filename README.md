@@ -480,4 +480,27 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
               
 # Directives
 
+    *ngIF
 
+     FILE: servers.component.html
+        <!-- <p>{{serverCreationStatus}}</p> -->
+            <p *ngIf="serverCreated">Server was created, server name is {{ serverName }}</p>
+       
+ 
+     FILE: servers.component.ts    
+            serverCreated = false;
+            onCreateServer() {
+          this.serverCreated=true;
+          this.serverCreationStatus = 'server was created! Name is '
+            + this.serverName;
+        }
+        
+     *ngIf-else
+      FILE: servers.component.html
+      <p *ngIf="serverCreated; else noServer">Server was created, server name is {{ serverName }}</p>
+            <ng-template #noServer>
+               <p> No server was created!</p>
+            </ng-template>
+      <!-- <p *ngIf="!serverCreated"> No server was created!</p>
+      FILE: servers.component.ts    
+      //No changes
