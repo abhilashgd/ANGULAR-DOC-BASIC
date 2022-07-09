@@ -280,4 +280,41 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
            <!-- <div app-servers></div>    -->
            <!-- <div class="app-servers"></div> -->
            
+# Data binding
+      Data binding = communication
+      TypeScript code -->output data --> HTML
+            String Interpolation ({{ data }})
+            Property binding ( [property = "data"]
+      HTML Code --> TypeScript
+            Event Binding (React to user events) ( (event) = "exression")
+            
+       Combination of both - Two way binding ( [ (ngModel)] = "data" )
+       
+            import { Component } from "@angular/core";
+ 
+ **String Interpolation **    
+    
+      FILE: server.component.ts
+           import { Component } from "@angular/core";
+
+            @Component({
+                selector: 'app-server',
+                templateUrl: './server.component.html'
+            })
+            export class ServerComponent {
+                serverId: number = 10;
+                serverStatus: string = 'offline';
+
+                getServerStatus() {
+                return this.serverStatus;
+                }
+            }
+            
+      FILE: server.component.html
+           <p>Server with ID {{ serverId }} is {{ getServerStatus() }}</p>
            
+  ** Property binding **  
+  
+      
+      
+ 
