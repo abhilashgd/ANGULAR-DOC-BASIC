@@ -505,6 +505,20 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
       //No changes
 
 # styling elements dynamically with ngStyle
+ 
+    FILE: server.component.ts    
+           constructor(){
+                  this.serverStatus=Math.random() > 0.5 ? 'online' : 'offline';
+              }
+          getColor() {
+                  return this.serverStatus === 'online' ? 'green' : 'red' ;
+              }
 
-
+     FILE: server.component.html
       
+        <p [ngStyle]="{backgroundColor: getColor()}">Server with ID {{ serverId }} is {{ getServerStatus() }}</p>
+        
+ # Applying CSS Classes Dynamically with ngClass
+ 
+      
+        
