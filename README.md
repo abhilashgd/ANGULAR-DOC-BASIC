@@ -1,4 +1,4 @@
-# ANGULAR 13  (formerly "Angular 2") -DOCS
+# ANGULAR 14  (formerly "Angular 2") -DOCS
               reactive web apps with the successor of Angular.js
               
 References:
@@ -519,6 +519,40 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
         <p [ngStyle]="{backgroundColor: getColor()}">Server with ID {{ serverId }} is {{ getServerStatus() }}</p>
         
  # Applying CSS Classes Dynamically with ngClass
- 
+    
+    FILE: server.component.ts    
+          @Component({
+          selector: 'app-server',
+          templateUrl: './server.component.html',
+          styles: [`
+          .online {
+              color: white;
+          }
+          `]
+      })
       
+    FILE: server.component.html
+            <p 
+      [ngStyle]="{backgroundColor: getColor()}"
+      [ngClass] = "{online: serverStatus === 'online'}">
+          Server with ID {{ serverId }} is {{ getServerStatus() }}
+      </p>
         
+ # outputting lists with ngFor
+ 
+    FILE: servers.component.ts    
+       servers = ['TestServer', 'TestServer 2']
+             onCreateServer() {
+          this.serverCreated=true;
+          this.servers.push(this.serverName);
+          this.serverCreationStatus = 'server was created! Name is '
+            + this.serverName;
+        }
+        
+    FILE: servers.component.html
+    
+          <app-server *ngFor="let server of servers"></app-server>
+            
+      
+ 
+ 
